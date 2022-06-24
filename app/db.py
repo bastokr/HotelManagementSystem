@@ -119,7 +119,7 @@ class AndrewDB(Database):
     def get_all_admins(self):
         logger.info("Trying to get all admins")
         cur = self.__get_cursor(self.ROLE_ADMIN)
-        cur.execute(f"SELECT * FROM admin NATURAL JOIN sys_user WHERE role={self.ROLE_ADMIN}")
+        cur.execute(f"SELECT * FROM admin NATURAL JOIN sys_user WHERE role='{self.ROLE_ADMIN}'")
         g.db.commit()
         return cur.fetchall()
 
